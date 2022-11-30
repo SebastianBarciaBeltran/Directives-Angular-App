@@ -15,7 +15,10 @@
         </div>
 
         <div class="col-auto">
-            <span class="form-text">Este campo es requerido</span>
+            <span class="form-text"
+                  error-msg
+                  message="Debe de ingresar este campo">
+            </span>
         </div>
 
         <div class="row mt-3">
@@ -27,7 +30,7 @@
     </div>
 </form>
 
-<h3>Formulario</h3>
+<h3 >Formulario</h3>
 
 <pre>Value: {{ myForm.value  | json }}</pre>
 <pre>Valid: {{ myForm.valid }}</pre>
