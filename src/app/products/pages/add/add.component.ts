@@ -8,6 +8,9 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class AddComponent implements OnInit {
 
+  text: string = 'Sebastián Barcia Beltran';
+  color: string = 'blue';
+
   myForm: FormGroup = this._fb.group({
       name: ['', [Validators.required]]
   });
@@ -15,6 +18,20 @@ export class AddComponent implements OnInit {
   constructor(private _fb: FormBuilder) { }
 
   ngOnInit() {
+
+  }
+
+  changeName(): void {
+    this.text = Math.random().toString();
+  }
+
+  changeColor(): void {
+    const color = "#xxxxxx".replace(/x/g, y=>(Math.random()*16|0).toString(16));
+    this.color = color;
+  }
+
+  haveError( formControlName ):boolean {
+    return this.myForm.get(formControlName).invalid || false;
   }
 
 }
